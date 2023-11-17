@@ -1,0 +1,18 @@
+::ng-deep .tabela-seletor-unico .dx-row.dx-data-row.dx-row-lines.dx-selection{
+    background: rgba(253, 183, 161, 0.48) !important;
+}
+
+::ng-deep .tabela-seletor-unico td{
+    height: 0.8em !important;
+    padding: 0.3em !important;
+}
+
+::ng-deep .tabela-seletor-unico .dx-state-hover:not(.dx-freespace-row):not(.dx-header-row) > td:not(.dx-editor-cell){
+    background: rgba(253, 183, 161, 0.24) !important;
+    cursor: pointer;
+}
+
+::ng-deep .tabela-seletor-unico tr > .dx-editor-cell{
+    height: 0.8em !important;
+    padding: 0em !important;
+}

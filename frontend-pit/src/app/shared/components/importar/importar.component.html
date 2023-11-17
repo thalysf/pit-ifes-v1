@@ -1,0 +1,23 @@
+<toolbar [actions]="actions" [titulo]="tituloToolbar"></toolbar>
+
+<div class="content-block dx-card responsive-paddings">
+    <h5>Dicas:</h5>
+    <p class="lead">
+        Primeiramente, baixe o modelo no botao acima, depois preencha com os dados necessários.
+    </p>
+
+    <p class="lead">
+        Após isso, selecione o arquivo preenchido e clique em enviar.
+    </p>
+
+    <app-upload-button
+        [router]="rotaImportarEntidade"
+        [(errorMessage)]="errorMessage"
+    ></app-upload-button>
+</div>
+
+<div *ngIf="errorMessage != ''" class="content-block dx-card responsive-paddings">
+    <p class="text-danger">
+        {{errorMessage}}
+    </p>
+</div>

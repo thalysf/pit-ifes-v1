@@ -1,0 +1,84 @@
+<div class="col-12 d-grid">
+    <dx-load-indicator
+        [classList]="'m-auto'"
+        [visible]="showLoadIndicator"
+    ></dx-load-indicator>
+</div>
+
+<div class="row">
+    <div class="col-md-10">
+        <label><strong>Atividade:</strong></label>
+    </div>
+    <div class="col-md-2">
+        <label><strong>Carga Horaria:</strong></label>
+    </div>
+</div>
+
+<div *ngFor="let atividadeEReposta of atividadesERespostas">
+
+    <div *ngIf="detalharApenasCargaHoraria(atividadeEReposta.atividade.tipoDetalhamento)" class="row mt-3">
+        <div class="col-md-10">
+            <dx-text-box
+                [value]="atividadeEReposta.atividade.nomeAtividade"
+                [readOnly]="true"
+            ></dx-text-box>
+        </div>
+        <div class="col-md-2">
+            <app-carga-horaria-editor
+                [(value)]="atividadeEReposta.resposta.cargaHorariaSemanal!"
+                [max]="atividadeEReposta.atividade.cargaHorariaMaxima"
+                [min]="atividadeEReposta.atividade.cargaHorariaMinima"
+                (onValueChanged)="changeCargaHorariaResposta(atividadeEReposta.resposta)"
+                [readOnly]="pitAprovadoOuEmRevisao"
+            ></app-carga-horaria-editor>
+        </div>
+    </div>
+
+    <div *ngIf="detalharProjeto(atividadeEReposta.atividade.tipoDetalhamento)" class="mt-3">
+        <app-detalhamento-projetos
+            [idAtividade]="atividadeEReposta.atividade.idAtividade"
+            [nomeAtividade]="atividadeEReposta.atividade.nomeAtividade"
+            [totalHoras]="atividadeEReposta.resposta.cargaHorariaSemanal!"
+            [idPit]="idPit"
+            [obterTotalHoras]="obterTotalHoras"
+            [pitAprovadoOuEmRevisao]="pitAprovadoOuEmRevisao"
+        ></app-detalhamento-projetos>
+    </div>
+
+    <div *ngIf="detalharPortaria(atividadeEReposta.atividade.tipoDetalhamento)" class="mt-3">
+        <app-detalhamento-portarias
+            [idAtividade]="atividadeEReposta.atividade.idAtividade"
+            [nomeAtividade]="atividadeEReposta.atividade.nomeAtividade"
+            [totalHoras]="atividadeEReposta.resposta.cargaHorariaSemanal!"
+            [idPit]="idPit"
+            [obterTotalHoras]="obterTotalHoras"
+            [pitAprovadoOuEmRevisao]="pitAprovadoOuEmRevisao"
+        ></app-detalhamento-portarias>
+    </div>
+
+    <div *ngIf="detalharAula(atividadeEReposta.atividade.tipoDetalhamento)" class="mt-3">
+        <app-detalhamento-aulas
+            [idAtividade]="atividadeEReposta.atividade.idAtividade"
+            [nomeAtividade]="atividadeEReposta.atividade.nomeAtividade"
+            [totalHoras]="atividadeEReposta.resposta.cargaHorariaSemanal!"
+            [idPit]="idPit"
+            [min]="atividadeEReposta.atividade?.cargaHorariaMinima || 0"
+            [max]="atividadeEReposta.atividade?.cargaHorariaMaxima || 0"
+            [obterTotalHoras]="obterTotalHoras"
+            [pitAprovadoOuEmRevisao]="pitAprovadoOuEmRevisao"
+        ></app-detalhamento-aulas>
+    </div>
+
+    <div *ngIf="detalharAluno(atividadeEReposta.atividade.tipoDetalhamento)" class="mt-3">
+        <app-detalhamento-alunos
+            [idAtividade]="atividadeEReposta.atividade.idAtividade"
+            [nomeAtividade]="atividadeEReposta.atividade.nomeAtividade"
+            [totalHoras]="atividadeEReposta.resposta.cargaHorariaSemanal!"
+            [cargaHorariaMaxima]="atividadeEReposta.atividade.cargaHorariaMaxima!"
+            [cargaHorariaMinima]="atividadeEReposta.atividade.cargaHorariaMinima!"
+            [idPit]="idPit"
+            [obterTotalHoras]="obterTotalHoras"
+            [pitAprovadoOuEmRevisao]="pitAprovadoOuEmRevisao"
+        ></app-detalhamento-alunos>
+    </div>
+</div>

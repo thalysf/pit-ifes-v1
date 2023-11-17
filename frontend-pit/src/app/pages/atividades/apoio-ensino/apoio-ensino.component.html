@@ -1,0 +1,21 @@
+<app-edit-component
+    [resource]="resource"
+    [(entidade)]="entidade"
+    [(entidadeOriginal)]="entidadeOriginal"
+    [valueExpr]="'idAtividade'"
+    [rota]="'atividades/apoioEnsino'"
+    [(id)]="id"
+></app-edit-component>
+
+<ng-container *ngIf="id">
+    <div *ngFor="let resourceReference of resource?.availableReferences">
+<!--        <table-list *ngIf="resourceReference.tipoAssociacao == 'OneToMany'" [resourceInput]="resourceReference"></table-list>-->
+
+        <table-associacao *ngIf="resourceReference.tipoAssociacao == 'ManyToMany' && isVisible(resourceReference.isVisible)"
+                          [resource]="resourceReference"></table-associacao>
+    </div>
+
+    <div *ngIf="entidadeOriginal?.tipoDetalhamento == tipoDetalhamentoProjeto">
+        <associar-projetos-atividade [idAtividade]="id" [tipoAtividade]="tipoAtividade.ATIVIDADE_APOIO_ENSINO"></associar-projetos-atividade>
+    </div>
+</ng-container>

@@ -1,0 +1,51 @@
+{
+    "professores": [
+        {
+            "idProfessor": "123",
+            "id": "123",
+            "nome": "Renan Osorio",
+            "email": "renan@email.com",
+            "campus": "Colatina",
+            "departamento": "Tecnologiaasasdsaf",
+            "siape": "123456",
+            "jornadaTrabalho": 20,
+            "efetivo": true,
+            "areaPrincipalAtuacao": "Robotica",
+            "titulacao": "Doutor",
+            "cargaHorariaAfastamento": false
+        },
+        {
+            "idProfessor": "124",
+            "id": "124",
+            "nome": "Igor Pulini",
+            "email": "igor@email.com",
+            "campus": "Colatina",
+            "departamento": "Tecnologiaasasdsaf",
+            "siape": "123457",
+            "jornadaTrabalho": 20,
+            "efetivo": true,
+            "areaPrincipalAtuacao": "Robotica",
+            "titulacao": "Doutor",
+            "cargaHorariaAfastamento": false
+        }
+    ],
+    "cursos": [
+        {
+            "idCurso": "1",
+            "id": "1",
+            "nome": "Sistemas de Informação"
+        },
+        {
+            "idCurso": "2",
+            "id": "2",
+            "nome": "Arquitetura e Urbanismo"
+        },
+        {
+            "nome": "sdafsda",
+            "id": "quye8ei"
+        }
+    ],
+    "componentesCurriculares": [
+
+    ]
+}

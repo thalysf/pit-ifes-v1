@@ -1,0 +1,49 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+
+    <changeSet id="1" author="joao">
+        <preConditions onFail="MARK_RAN">
+            <not><tableExists tableName="servidor"/></not>
+        </preConditions>
+
+        <comment>Criar tabela SERVIDOR</comment>
+
+        <createTable tableName="servidor">
+            <column name="id_servidor" type="uuid"></column>
+            <column name="area_principal_atuacao" type="varchar"></column>
+            <column name="campus" type="varchar"></column>
+            <column name="departamento" type="varchar"></column>
+            <column name="email" type="varchar"></column>
+            <column name="jornada_trabalho" type="decimal"></column>
+            <column name="nome" type="varchar"></column>
+            <column name="possui_afastamento" type="boolean"></column>
+            <column name="efetivo" type="boolean"></column>
+            <column name="siape" type="varchar"></column>
+            <column name="titulacao" type="varchar"></column>
+            <column name="administrador" type="boolean"></column>
+            <column name="user_id" type="uuid"></column>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="2" author="joao">
+        <comment>Criar entidade de Servidor para o perfil ADM</comment>
+
+        <insert tableName="servidor">
+            <column name="id_servidor" value="2b15f856-4b89-4fb7-8e6a-bd7b24ecac1d"></column>
+            <column name="area_principal_atuacao" value=""></column>
+            <column name="campus" value=""></column>
+            <column name="departamento" value=""></column>
+            <column name="email" value="adm@adm.com"></column>
+            <column name="jornada_trabalho" value="0"></column>
+            <column name="nome" value="Administrador"></column>
+            <column name="possui_afastamento" value="false"></column>
+            <column name="efetivo" value="true"></column>
+            <column name="siape" value=""></column>
+            <column name="titulacao" value=""></column>
+            <column name="administrador" value="true"></column>
+            <column name="user_id" value="00000000-0000-0000-0000-000000000001"></column>
+        </insert>
+    </changeSet>
+
+</databaseChangeLog>

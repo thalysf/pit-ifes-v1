@@ -1,0 +1,11 @@
+<div class="content-block dx-card responsive-paddings">
+    <h2>{{getTitulo()}}</h2>
+
+    <tabela-listagem
+        [colunas]="colunas"
+        [valueExpr]="'idPIT'"
+        [url]="getUrlListarPit()"
+        [actions]="actions"
+    ></tabela-listagem>
+
+</div>

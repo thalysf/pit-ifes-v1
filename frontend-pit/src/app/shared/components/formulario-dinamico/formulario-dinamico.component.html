@@ -1,0 +1,12 @@
+<dx-form #formulario
+         [(formData)]="entidade"
+         [items]="itemsForm"
+         (onFieldDataChanged)="formularioChanged($event)"
+         [labelLocation]="labelLocation"
+>
+
+    <div *dxTemplate="let data of 'cargaHoraria'">
+        <app-carga-horaria-editor [width]="250" [(value)]="entidade[data.dataField]"></app-carga-horaria-editor>
+    </div>
+
+</dx-form>

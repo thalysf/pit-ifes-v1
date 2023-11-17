@@ -1,0 +1,8 @@
+h5, h2 {
+    font-size: 1.35em;
+    margin-top: 0.8em;
+    margin-bottom: 1em;
+    font-weight: 400;
+
+    font-family: "Roboto", "RobotoFallback", "Noto Kufi Arabic", Helvetica, Arial, sans-serif;
+}

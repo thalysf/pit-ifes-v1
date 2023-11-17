@@ -1,0 +1,20 @@
+<div class="content-block dx-card responsive-paddings">
+    <h2>Professores do projeto</h2>
+
+    <tabela-listagem #tabelaProfessoresProjeto [colunas]="colunasParticipantes" [actions]="acoesTabelaProfessores"
+                     [url]="getUrlProfessoresProjeto()"
+                     [valueExpr]="'idParticipacaoProjeto'"></tabela-listagem>
+
+    <modal-padrao [(isVisible)]="showModalAssociarProfessores"
+                  [salvar]="associarProfessorProjeto()"
+                  [width]="600"
+                  [titulo]="'Associar professor ao projeto'">
+
+        <tabela-listagem
+            #tabelaProfessoresAssociar
+            [colunas]="colunasProfessores"
+            [url]="getUrlProfessoresNaoParticipantesProjeto()"
+            [valueExpr]="'idServidor'"
+        ></tabela-listagem>
+    </modal-padrao>
+</div>

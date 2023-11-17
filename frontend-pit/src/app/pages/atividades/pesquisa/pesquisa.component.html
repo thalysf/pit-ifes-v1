@@ -1,0 +1,12 @@
+<app-edit-component
+    [resource]="resource"
+    [(entidade)]="entidade"
+    [(entidadeOriginal)]="entidadeOriginal"
+    [valueExpr]="'idAtividade'"
+    [rota]="'atividades/pesquisa'"
+    [(id)]="id"
+></app-edit-component>
+
+<ng-container *ngIf="id">
+    <associar-projetos-atividade [idAtividade]="id" [tipoAtividade]="tipoAtividade.ATIVIDADE_PESQUISA"></associar-projetos-atividade>
+</ng-container>

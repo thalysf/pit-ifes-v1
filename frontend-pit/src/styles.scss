@@ -1,0 +1,52 @@
+/* You can add global styles to this file, and also import other style files */
+
+:root{
+    --verde: green;
+    --verde-institucional: #68912e;
+    --verde-institucional-claro: #90a96e;
+    // --background-menu: #616c52;
+    --background-menu: #e2eae4;
+    --background-menu-hover: #d0dcd3;
+}
+
+.dx-link-icon {
+    color: var(--verde) !important;
+}
+
+.dx-icon-menu {
+    color: white !important;
+}
+
+.header-toolbar{
+    background-color: var(--verde) !important;
+}
+
+.dx-theme-material-typography .dx-swatch-additional, .dx-theme-material-typography.dx-swatch-additional{
+    background-color: var(--background-menu) !important;
+}
+
+.dx-treeview-item.dx-state-hover:not(.dx-state-selected .dx-treeview-item.dx-state-hover){
+    background-color: var(--background-menu-hover) !important;
+}
+
+// nomes do menu
+.dx-item-content.dx-treeview-item-content{
+    color: #333;
+}
+
+.dx-treeview-node.dx-treeview-item-without-checkbox{
+    border-bottom: none !important;
+}
+
+// seta do grupo de menu
+.dx-treeview-toggle-item-visibility{
+    color: #333 !important;
+}
+
+.dx-closebutton .dx-button-content {
+    display: grid;
+}
+
+.d-grid{
+    display: grid;
+}

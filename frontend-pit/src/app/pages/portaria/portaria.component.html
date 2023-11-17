@@ -1,0 +1,22 @@
+<app-edit-component
+    [resource]="resourcePortaria"
+    [(entidade)]="entidade"
+    [(entidadeOriginal)]="entidadeOriginal"
+    [valueExpr]="'idPortaria'"
+    [rota]="'portarias'"
+    [(id)]="id"
+></app-edit-component>
+
+<ng-container *ngIf="id">
+    <div *ngFor="let resourceReference of resourcePortaria?.availableReferences">
+        <table-associacao *ngIf="resourceReference.tipoAssociacao == 'ManyToMany'"
+                          [resource]="resourceReference"></table-associacao>
+    </div>
+
+    <professores-portaria [idPortaria]="id!"></professores-portaria>
+
+    <atividade-associada
+        *ngIf="showAtividade(entidadeOriginal?.tipoAtividade)"
+        [atividades]="[entidade.atividade]"
+    ></atividade-associada>
+</ng-container>

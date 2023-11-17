@@ -1,0 +1,15 @@
+<app-edit-component
+    [resource]="resource"
+    [(entidade)]="entidade"
+    [rota]="'projetos'"
+    [valueExpr]="'idProjeto'"
+    [(id)]="id"
+></app-edit-component>
+
+<ng-container *ngIf="id">
+    <professores-projeto [idProjeto]="id!"></professores-projeto>
+
+    <atividade-associada
+        [atividades]="entidade.atividades"
+    ></atividade-associada>
+</ng-container>

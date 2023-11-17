@@ -1,0 +1,27 @@
+<div class="content-block dx-card responsive-paddings">
+    <h2>Projetos</h2>
+
+
+    <tabela-listagem
+        #tabelaListagem
+        [url]="getUrlProjetosAtividade()"
+        [valueExpr]="'idProjeto'"
+        [colunas]="colunasProjetos"
+        [actions]="actions"
+    ></tabela-listagem>
+
+
+    <modal-padrao
+        [titulo]="'Associar projetos'"
+        [(isVisible)]="showModal"
+        [salvar]="salvar()"
+    >
+        <tabela-listagem
+            #tabelaListagemModal
+            [colunas]="colunasProjetos"
+            [valueExpr]="'idProjeto'"
+            [selectionMode]="'single'"
+            [url]="getUrlModalAssociacao()"
+        ></tabela-listagem>
+    </modal-padrao>
+</div>

@@ -1,0 +1,49 @@
+<form class="create-account-form" (submit)="onSubmit($event)">
+  <dx-form [formData]="formData" [disabled]="loading">
+
+    <dxi-item dataField="email" editorType="dxTextBox"
+      [editorOptions]="{ stylingMode: 'filled', placeholder: 'E-mail', mode: 'email' }">
+      <dxi-validation-rule type="required" message="Insira um e-mail válido!"></dxi-validation-rule>
+      <dxi-validation-rule type="email" message="E-mail inválido"></dxi-validation-rule>
+      <dxo-label [visible]="false"></dxo-label>
+    </dxi-item>
+
+    <dxi-item dataField="password" editorType="dxTextBox"
+      [editorOptions]="{ stylingMode: 'filled', placeholder: 'Senha', mode: 'password' }">
+      <dxi-validation-rule type="required" message="Insira uma senha válida"></dxi-validation-rule>
+      <dxo-label [visible]="false"></dxo-label>
+    </dxi-item>
+
+    <dxi-item dataField="confirmedPassword" editorType="dxTextBox"
+      [editorOptions]="{ stylingMode: 'filled', placeholder: 'Confirmar senha', mode: 'password' }">
+      <dxi-validation-rule type="required" message="Insira uma senha válida"></dxi-validation-rule>
+      <dxi-validation-rule type="custom" message="As senhas não conferem!" [validationCallback]="confirmPassword">
+      </dxi-validation-rule>
+      <dxo-label [visible]="false"></dxo-label>
+    </dxi-item>
+
+    <dxi-item itemType="button">
+      <dxo-button-options width="100%" type="default" [useSubmitBehavior]="true" [template]="'createAccountTemplate'">
+      </dxo-button-options>
+    </dxi-item>
+
+    <dxi-item>
+      <div class="login-link">
+        Possui uma conta? <a routerLink="/login">Login</a>
+      </div>
+    </dxi-item>
+
+    <ng-container *dxTemplate="let item of 'createAccountTemplate'">
+      <div>
+        <span class="dx-button-text">
+          <ng-container *ngIf="loading; else notLoading">
+            <dx-load-indicator width="24px" height="24px" [visible]="true"></dx-load-indicator>
+          </ng-container>
+  
+          <ng-template #notLoading>Criar nova conta</ng-template>
+        </span>
+      </div>
+    </ng-container>
+
+  </dx-form>
+</form>

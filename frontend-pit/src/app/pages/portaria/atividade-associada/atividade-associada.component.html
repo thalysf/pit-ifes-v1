@@ -1,0 +1,15 @@
+<div class="content-block dx-card responsive-paddings">
+    <h2>Atividades associadas</h2>
+
+    <dx-data-grid
+        [dataSource]="atividades"
+        keyExpr="idAtividade"
+    >
+        <dxi-column [dataField]="'nomeAtividade'"></dxi-column>
+
+        <dxi-column type="buttons" caption="Ações">
+            <dxi-button [icon]="'edit'" [hint]="'Visualizar atividade'" [onClick]="navigateToAtividade">
+            </dxi-button>
+        </dxi-column>
+    </dx-data-grid>
+</div>

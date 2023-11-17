@@ -1,0 +1,31 @@
+<toolbar
+    [actions]="actions"
+    [titulo]="'PIT'"
+></toolbar>
+
+
+<div class="content-block dx-card responsive-paddings">
+
+    <dx-load-panel [visible]="loadPanelVisible"></dx-load-panel>
+
+    <div class="form col-lg-8 col-xl-6">
+        <div class="dx-fieldset">
+            <div class="dx-field">
+                <div class="dx-field-label">Período:</div>
+                <div class="dx-field-value">
+                    <dx-radio-group displayExpr="nome" valueExpr="id" [items]="periodos" [(value)]="periodoSelecionado"
+                                    layout="horizontal">
+                    </dx-radio-group>
+                </div>
+            </div>
+
+            <div class="dx-field">
+                <div class="dx-field-label">Ano:</div>
+                <div class="dx-field-value">
+                    <dx-date-box [(value)]="dataSelecionada" [displayFormat]="'year'" [calendarOptions]="{zoomLevel: 'year', maxZoomLevel: 'decade', minZoomLevel: 'decade'}"></dx-date-box>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

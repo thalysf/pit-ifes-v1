@@ -1,0 +1,8 @@
+<dx-select-box
+    [readOnly]="configuration.readOnly || false"
+    [displayExpr]="configuration.displayExpr"
+    [valueExpr]="configuration.valueExpr"
+    [dataSource]="entidades"
+    [(value)]="selected"
+    (selectedItemChange)="onSelectionChanged()"
+></dx-select-box>

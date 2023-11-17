@@ -1,0 +1,28 @@
+<toolbar [titulo]="tituloPit" [actions]="actions"></toolbar>
+
+<div class="content-block dx-card responsive-paddings">
+    <h5>Informações:</h5>
+    <p>
+        Baixe o PIT do professor para verificar se as informações estão corretas.
+    </p>
+    <p>
+        Caso tenha alguma alteração, clique em "Pedir alteração" e detalhe quais as alterações o professor deverá fazer.
+        O professor receberá por e-mail essas informações.
+    </p>
+    <p>
+        Após pedir a alteração o professor poderá editar novamente o PIT dele.
+    </p>
+    <p>
+        Depois de aprovado o professor não pode mais editar o PIT.
+    </p>
+</div>
+
+<modal-padrao
+    [titulo]="'Solicitar alterações'"
+    [(isVisible)]="showModalAlteracoes"
+    [salvar]="pedirAlteracao()">
+
+
+    <dx-text-area [(value)]="textoAlteracoes" [label]="'Alterações solicitadas pelo revisor'" [inputAttr]="{rows: 30}" [height]="300"></dx-text-area>
+
+</modal-padrao>

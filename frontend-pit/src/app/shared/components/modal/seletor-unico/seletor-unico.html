@@ -1,0 +1,14 @@
+<dx-text-box
+    [(value)]="textoInput"
+    [classList]="'input-seletor-unico'"
+    [readOnly]="true"
+    [disabled]="disabled"
+    (click)="clickEvent()"
+    [showClearButton]="true"
+    stylingMode="filled"
+    [placeholder]="placeholder"
+>
+
+    <dxi-button [visible]="!disabled" name="search" location="after" [options]="searchButton">
+    </dxi-button>
+</dx-text-box>

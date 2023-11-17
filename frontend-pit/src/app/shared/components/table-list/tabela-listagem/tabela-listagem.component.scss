@@ -1,0 +1,30 @@
+::ng-deep .action-item-tabela .dx-button{
+    border: 1px solid green;
+    border-radius: 0px !important;
+    margin: 0.1em !important;
+    color: green !important;
+}
+
+::ng-deep .action-item-tabela .dx-button .dx-icon{
+    color: green !important;
+}
+
+.actions-table{
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+.actions-table ::ng-deep .dx-button:hover{
+    color: rgb(1, 72, 1) !important;
+    background-color: rgb(225, 238, 225) !important;
+}
+
+::ng-deep .tabela-listagem td{
+    height: 1em !important;
+    padding: 0.7em !important;
+}
+
+::ng-deep .tabela-listagem tr:hover > td{
+    color: rgba(0,0,0,1) !important;
+    background: #eeee !important;
+}

@@ -1,0 +1,39 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+
+    <changeSet id="1" author="joao">
+        <comment>Inserindo roles default no sistema</comment>
+
+        <insert tableName="role">
+            <column name="role_id" value="00000000-0000-0000-0000-000000000001"></column>
+            <column name="role_name" value="DIRETOR"></column>
+        </insert>
+
+        <insert tableName="role">
+            <column name="role_id" value="00000000-0000-0000-0000-000000000002"></column>
+            <column name="role_name" value="COORDENADOR"></column>
+        </insert>
+
+        <insert tableName="role">
+            <column name="role_id" value="00000000-0000-0000-0000-000000000003"></column>
+            <column name="role_name" value="PROFESSOR"></column>
+        </insert>
+    </changeSet>
+
+    <changeSet id="2" author="joao">
+        <comment>Inserindo usuario adm default e dando acesso de DIRETOR</comment>
+        <insert tableName="usuario">
+            <column name="user_id" value="00000000-0000-0000-0000-000000000001"></column>
+            <column name="password" value="$2a$10$vDi.GUqP909Fz/UuwhPkMuR1CDnGZvGPE38sc5yMhuz1/tGmBugfa"></column>
+            <column name="username" value="adm@adm.com"></column>
+        </insert>
+
+        <insert tableName="usuario_role">
+            <column name="user_id" value="00000000-0000-0000-0000-000000000001"></column>
+            <column name="role_id" value="00000000-0000-0000-0000-000000000001"></column>
+        </insert>
+    </changeSet>
+
+
+</databaseChangeLog>

@@ -1,0 +1,7 @@
+::ng-deep .filtro-text-button{
+    display: flex;
+}
+
+::ng-deep .btn-search-filter{
+    border-radius: 0 !important;
+}

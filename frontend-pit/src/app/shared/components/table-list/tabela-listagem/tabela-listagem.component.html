@@ -1,0 +1,79 @@
+<div class="">
+    <div class="actions-table">
+
+        <dx-toolbar>
+
+            <dxi-item
+                toolbar="bottom"
+                widget="dxTextBox"
+                location="before"
+                [options]="{
+                    width: 400,
+                    onValueChanged: searchText,
+                    onEnterKey: searchEnter,
+                    placeholder: 'Filtrar resultados'
+                }"
+            ></dxi-item>
+
+            <dxi-item
+                toolbar="bottom"
+                location="before"
+                widget="dxButton"
+                [cssClass]="'action-item-tabela'"
+                [options]="{
+                    text: '',
+                    icon: 'column-chooser',
+                    type: 'success',
+                    hint: 'Seletor de colunas',
+                    onClick: showColumnChooser
+                }">
+            </dxi-item>
+
+            <dxi-item
+                *ngFor="let option of actionsBatch"
+                toolbar="bottom"
+                location="before"
+                widget="dxButton"
+                [cssClass]="'action-item-tabela'"
+                [options]="option">
+            </dxi-item>
+        </dx-toolbar>
+    </div>
+
+
+    <dx-data-grid
+        #dataGrid
+        [dataSource]="entidades"
+        keyExpr="{{valueExpr}}"
+        [classList]="['tabela-listagem tabela-seletor-unico']"
+        [(selectedRowKeys)]="_selectedKeys"
+        [hoverStateEnabled]="true"
+        [showBorders]="true">
+
+        <dxo-selection [mode]="selectionMode"  showCheckBoxesMode="always"></dxo-selection>
+        <dxo-column-chooser [enabled]="false" [mode]="'select'"></dxo-column-chooser>
+
+        <dxo-paging [pageSize]="10"></dxo-paging>
+        <dxo-pager
+            [showPageSizeSelector]="true"
+            [allowedPageSizes]="[10, 25, 50, 100]"
+            [showInfo]="true"
+            [visible]="true"
+        ></dxo-pager>
+
+        <dxi-column *ngFor="let coluna of colunasListadas"
+                    [dataField]="coluna.field"
+                    [caption]="coluna.label"
+                    [dataType]="coluna.dateType"
+                    [visible]="coluna.visible"
+                    [width]="coluna.width"
+                    [calculateDisplayValue]="coluna.calculateDisplayValue"
+        ></dxi-column>
+
+        <dxi-column type="buttons" caption="Ações" *ngIf="actionsSingle.length > 0">
+            <dxi-button *ngFor="let action of actionsSingle"
+                        [visible]="action.isVisible" [icon]="action.icon" [hint]="action.hint" [onClick]="action.onClick">
+            </dxi-button>
+        </dxi-column>
+    </dx-data-grid>
+</div>

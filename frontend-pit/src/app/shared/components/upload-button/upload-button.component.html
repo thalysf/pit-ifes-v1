@@ -1,0 +1,15 @@
+<div class="col-12 d-grid">
+    <dx-load-indicator
+        [classList]="'m-auto'"
+        [visible]="showLoadIndicator"
+    ></dx-load-indicator>
+
+    <dx-file-uploader
+        selectButtonText="Selecionar arquivo"
+        [uploadMode]="'useButtons'"
+        [uploadFile]="uploadFile"
+        accept=".csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel"
+        uploadButtonText="Enviar arquivo"
+    >
+    </dx-file-uploader>
+</div>

@@ -1,0 +1,34 @@
+// Adicionar espaço entre os botões do modal-footer
+.modal-footer > dx-button {
+    margin-left: 1em;
+}
+
+.modal-footer{
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+}
+
+::ng-deep .modal-footer .dx-button{ /* Todos os botões Modal */
+    border-radius: 0px !important;
+    border: 1px solid #ddd !important;
+    box-shadow: 1px 1px 1px #eee;
+}
+
+::ng-deep .modal-footer .dx-button:hover{ /* Todos os botões Modal */
+    background-color: #eee;
+}
+
+::ng-deep .modal-footer .dx-button-success{ /* Btn Success Modal */
+    background: green;
+    color: white;
+}
+
+::ng-deep .modal-footer .dx-button-success:hover{ /* Btn Success Modal hover */
+    background: #006c00;
+    color: white;
+}
+
+::ng-deep .modal-footer .dx-button-success .dx-icon{ /* Btn Success Modal */
+    color: white;
+}

@@ -1,0 +1,97 @@
+<div class="row">
+    <div class="col-md-10">
+
+        <seletor-unico
+            [textoInput]="nomeAtividade"
+            (onClick)="abrirDetalhamentoAlunos()"
+            [disabled]="pitAprovadoOuEmRevisao"
+        ></seletor-unico>
+
+        <modal-padrao
+            [titulo]="nomeAtividade"
+            [(isVisible)]="showModalDetalhamento"
+            [salvar]="salvar()"
+        >
+            <div *ngFor="let resposta of respostas" class="row mt-3">
+                <div class="col-md-9">
+                    <seletor-unico
+                        [textoInput]="getDadosAluno(resposta)"
+                        [placeholder]="'Inserir novo aluno'"
+                        [disabled]="resposta.aluno? true : false"
+                        (onClick)="abrirFormularioInserirAluno(resposta)"
+                    ></seletor-unico>
+                </div>
+                <div class="col-md-2">
+                    <app-carga-horaria-editor
+                        [max]="cargaHorariaMaxima"
+                        [min]="cargaHorariaMinima"
+                        [(value)]="resposta.cargaHorariaSemanal"
+                        (onValueChanged)="changeCargaHorariaResposta(resposta)"
+                    ></app-carga-horaria-editor>
+                </div>
+                <div class="col-md-1" *ngIf="resposta.aluno">
+                    <dx-button
+                        icon="close"
+                        stylingMode="outlined"
+                        type="danger"
+                        [classList]="''"
+                        (onClick)="onClickRemoverLinha(resposta)"
+                    ></dx-button>
+                </div>
+            </div>
+        </modal-padrao>
+    </div>
+
+    <div class="col-md-2">
+        <app-carga-horaria-editor
+            [(value)]="totalHoras"
+            [readOnly]="true"
+        ></app-carga-horaria-editor>
+    </div>
+</div>
+
+
+<!-- NECESSARIO PARA NÃO REQUISITAR A LISTAGEM DE ALUNOS A CADA RENDERIZAÇÃO DO COMPONENTE -->
+<div *ngIf="showFormularioAluno">
+    <!-- MODAL DE CADASTRAR ALUNO -->
+    <modal-padrao
+        [titulo]="'Cadastrar aluno'"
+        [width]="500"
+        [(isVisible)]="showFormularioAluno"
+        [salvar]="salvarFormularioAluno()"
+    >
+
+        <div class="col-12 d-grid mb-3">
+            <dx-button
+                stylingMode="outlined"
+                type="normal"
+                icon="search"
+                (onClick)="abrirListagemAlunos()"
+                [text]="'Procurar por alunos cadastrados'"
+            ></dx-button>
+        </div>
+
+        <formulario-dinamico
+            #formularioAluno
+            [(entidade)]="entidadeAluno"
+            [colunas]="colunasDetalhamentoAlunos"
+        ></formulario-dinamico>
+    </modal-padrao>
+
+
+    <!-- MODAL DE LISTAGEM DE ALUNOS PARA PESQUISAR POR ALGUM ALUNO CADASTRADO -->
+    <modal-padrao
+        [titulo]="'Selecionar aluno'"
+        [textBtnSalvar]="'Selecionar'"
+        [salvar]="onSelecionarAlunoModalListagem()"
+        [(isVisible)]="showModalListagemAlunos"
+    >
+        <tabela-listagem
+            #tabelaListagemAlunos
+            [colunas]="colunasAlunos"
+            [url]="rotaAlunos"
+            [valueExpr]="'idAluno'"
+            [ativarSelecaoUnica]="true"
+        ></tabela-listagem>
+    </modal-padrao>
+</div>

@@ -1,0 +1,46 @@
+/* Alterar cor do texto do input */
+::ng-deep .input-seletor-unico input{
+    color: #2a2828 !important;
+    font-size: 1em !important;
+    height: 2.5em !important;
+}
+
+::ng-deep .input-seletor-unico .dx-state-disabled, .dx-state-disabled.dx-widget{
+    opacity: 0.8 !important;
+}
+
+::ng-deep .input-seletor-unico .dx-texteditor-input{
+    cursor: pointer;
+}
+
+::ng-deep .input-seletor-unico{
+    background-color: #f5f5f5 !important;
+}
+
+::ng-deep .input-seletor-unico:hover{
+    transition: 100ms linear;
+    background-color: #e5e5e5 !important;
+}
+
+::ng-deep .input-seletor-unico .dx-texteditor-buttons-container{
+    cursor: pointer;
+    padding: 0em 0.3em !important;
+    border: none;
+}
+
+::ng-deep .input-seletor-unico .dx-texteditor-buttons-container .dx-button{
+    margin: 0px !important;
+    background-color: green;
+    height: 2.2em;
+    opacity: 1 !important;
+    color: white !important;
+}
+
+::ng-deep .input-seletor-unico .dx-texteditor-buttons-container .dx-button .dx-icon{
+    opacity: 1 !important;
+}
+
+::ng-deep .input-seletor-unico .dx-texteditor-buttons-container:hover > .dx-button{
+    background-color: #016e01 !important;
+    box-shadow: 2px 2px 2px #aaa !important;
+}

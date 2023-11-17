@@ -1,0 +1,55 @@
+<seletor-unico (onClick)="openModal()" [placeholder]="placeholder" [readOnly]="readOnly" [disabled]="disabled" [(textoInput)]="textoInput"></seletor-unico>
+
+<modal-padrao
+    [(isVisible)]="isPopupVisible"
+    [salvar]="salvar()"
+    [textBtnSalvar]="'Selecionar'"
+    [titulo]="titulo"
+    [width]="width">
+
+<!--    <div *ngIf="columnsFilter.length > 0" class="mb-3 filtro-text-button">-->
+<!--        <dx-text-box-->
+<!--            [placeholder]="'Filtrar resultados'"-->
+<!--            [(value)]="filtro"-->
+<!--            [classList]="'col-md-10'"-->
+<!--            (onEnterKey)="listarEntidades()"-->
+<!--        ></dx-text-box>-->
+
+<!--        <dx-button-->
+<!--            icon="search"-->
+<!--            stylingMode="outlined"-->
+<!--            type="primary"-->
+<!--            [classList]="'btn-search-filter'"-->
+<!--            (onClick)="listarEntidades()"-->
+<!--        ></dx-button>-->
+<!--    </div>-->
+
+    <dx-data-grid
+        [classList]="'tabela-seletor-unico'"
+        [dataSource]="entidades"
+        [selectedRowKeys]="selectedKeys"
+        [hoverStateEnabled]="true"
+        [filterValue]="filtro"
+        [showBorders]="true"
+        [height]="325"
+        (onSelectionChanged)="onSelectionChanged($event)"
+    >
+        <dxo-filter-row [visible]="true"></dxo-filter-row>
+        <dxo-selection mode="single" showCheckBoxesMode="always"></dxo-selection>
+        <dxo-paging [pageSize]="10"></dxo-paging>
+        <dxo-pager
+            [showPageSizeSelector]="true"
+            [allowedPageSizes]="[10, 25, 50, 100]"
+            [showInfo]="true"
+            [visible]="true"
+        ></dxo-pager>
+
+
+        <dxi-column *ngFor="let coluna of colunas" allowSelection="true" [dataField]="coluna.field"
+                    [caption]="coluna.label"
+                    [visible]="coluna.visible">
+        </dxi-column>
+    </dx-data-grid>
+</modal-padrao>
+
+

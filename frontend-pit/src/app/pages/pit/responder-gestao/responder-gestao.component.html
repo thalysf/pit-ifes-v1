@@ -1,0 +1,34 @@
+<div class="col-12 d-grid">
+    <dx-load-indicator
+        [classList]="'m-auto'"
+        [visible]="showLoadIndicator"
+    ></dx-load-indicator>
+</div>
+
+
+<div class="row">
+    <div class="col-md-10">
+        <label><strong>Portaria:</strong></label>
+    </div>
+    <div class="col-md-2">
+        <label><strong>Carga Horaria:</strong></label>
+    </div>
+</div>
+
+<div *ngFor="let portariaResposta of portariaERespostas" class="row mt-2">
+    <div class="col-md-10">
+        <dx-text-box
+            [value]="portariaResposta.portaria.nome"
+            [readOnly]="true"
+        ></dx-text-box>
+    </div>
+    <div class="col-md-2">
+        <app-carga-horaria-editor
+            [(value)]="portariaResposta.resposta.cargaHorariaSemanal"
+            [max]="portariaResposta.portaria.cargaHorariaMaxima"
+            [min]="portariaResposta.portaria.cargaHorariaMinima"
+            (onValueChanged)="changeCargaHorariaResposta(portariaResposta.resposta)"
+            [readOnly]="pitAprovadoOuEmRevisao"
+        ></app-carga-horaria-editor>
+    </div>
+</div>

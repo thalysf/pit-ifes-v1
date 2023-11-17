@@ -1,0 +1,59 @@
+<dx-toolbar  [classList]="'toolbar'">
+    <dxi-item
+        location="before"
+        toolbar="bottom"
+        widget="dxButton"
+        [options]="backOption"
+    ></dxi-item>
+
+    <dxi-item location="after">
+        <div [classList]="'horas-preenchidas badge badge-pill badge-info'">
+            Total: {{totalHorasPit}}h
+        </div>
+    </dxi-item>
+
+    <dxi-item
+        location="after"
+        toolbar="bottom"
+        widget="dxButton"
+        [cssClass]="'botoes-toolbar'"
+        [options]="enviarRevisaoOption"
+    ></dxi-item>
+</dx-toolbar>
+
+<dx-tabs
+    #tabsComponent
+    [scrollByContent]="true"
+    [showNavButtons]="true"
+    [dataSource]="tabs"
+    [(selectedItem)]="selectedTab"
+    [selectedIndex]="0"
+    (onItemClick)="selectTab($event)"
+></dx-tabs>
+
+<div class="content-block dx-card responsive-paddings">
+    <div *ngIf="isAbaAulas()">
+        <responder-aulas [pitAprovadoOuEmRevisao]="pitAprovadoOuEmRevisao" [idPit]="id" [obterTotalHoras]="obterTotalHoras"></responder-aulas>
+    </div>
+    <div *ngIf="isAbaApoioEnsino()">
+        <app-responder-apoio-ensino [pitAprovadoOuEmRevisao]="pitAprovadoOuEmRevisao" [idPit]="id" [obterTotalHoras]="obterTotalHoras"></app-responder-apoio-ensino>
+    </div>
+    <div *ngIf="isAbaMediacao()">
+        <app-responder-mediacao-pedagogica [pitAprovadoOuEmRevisao]="pitAprovadoOuEmRevisao" [idPit]="id" [obterTotalHoras]="obterTotalHoras"></app-responder-mediacao-pedagogica>
+    </div>
+    <div *ngIf="isAbaPesquisa()">
+        <app-responder-pesquisa [pitAprovadoOuEmRevisao]="pitAprovadoOuEmRevisao" [idPit]="id" [obterTotalHoras]="obterTotalHoras"></app-responder-pesquisa>
+    </div>
+    <div *ngIf="isAbaExtensao()">
+        <app-responder-extensao [pitAprovadoOuEmRevisao]="pitAprovadoOuEmRevisao" [idPit]="id" [obterTotalHoras]="obterTotalHoras"></app-responder-extensao>
+    </div>
+    <div *ngIf="isAbaGestao()">
+        <app-responder-gestao [pitAprovadoOuEmRevisao]="pitAprovadoOuEmRevisao" [idPit]="id" [obterTotalHoras]="obterTotalHoras"></app-responder-gestao>
+    </div>
+    <div *ngIf="isAbaRepresentacao()">
+        <app-responder-representacao [pitAprovadoOuEmRevisao]="pitAprovadoOuEmRevisao" [idPit]="id" [obterTotalHoras]="obterTotalHoras"></app-responder-representacao>
+    </div>
+    <div *ngIf="isAbaOutras()">
+        <app-responder-outras [pitAprovadoOuEmRevisao]="pitAprovadoOuEmRevisao" [idPit]="id" [obterTotalHoras]="obterTotalHoras"></app-responder-outras>
+    </div>
+</div>

@@ -1,0 +1,22 @@
+<toolbar [titulo]="resource.nomeEntidade.singular"
+         [actions]="actions"
+></toolbar>
+
+<div class="content-block dx-card responsive-paddings">
+    <formulario-dinamico
+        #formulario
+        [colunas]="resource.colunas"
+        [(entidade)]="entidade"
+    ></formulario-dinamico>
+</div>
+
+<ng-container *ngIf="possuiEntidade()">
+    <div *ngFor="let resourceReference of resource?.availableReferences">
+        <table-list *ngIf="resourceReference.tipoAssociacao == 'OneToMany'"
+                    [resourceInput]="resourceReference"></table-list>
+
+        <table-associacao
+            *ngIf="resourceReference.tipoAssociacao == 'ManyToMany' && isVisible(resourceReference.isVisible)"
+            [resource]="resourceReference"></table-associacao>
+    </div>
+</ng-container>

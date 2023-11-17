@@ -1,0 +1,67 @@
+.label-toolbar {
+    margin-left: 1em;
+    font-size: 1.3em;
+    text-transform: uppercase;
+    color: #555;
+}
+
+::ng-deep .dx-field-item-label {
+    padding-top: 2px;
+    padding-bottom: 2px;
+    width: 20%;
+    text-align: right;
+}
+
+::ng-deep .dx-field-item-label-content {
+    width: 80% !important;
+    text-transform: capitalize;
+}
+
+::ng-deep .dx-field-item {
+    padding-top: 2px;
+    padding-bottom: 2px;
+}
+
+::ng-deep .dx-first-col {
+    padding: 0.5em !important;
+}
+
+/*Inputs*/
+::ng-deep .dx-texteditor-input{
+    height: 2.2em;
+    border-radius: 0px;
+    border: 1px solid #c7c7c7;
+}
+
+/*Input do tipo data*/
+::ng-deep .input-date .dx-datebox{
+    width: 20em;
+}
+
+/* Mensagem de erro em baixo do input */
+::ng-deep .dx-invalid-message > .dx-overlay-content{
+    transform: translate(0px, 8px) !important;
+}
+
+::ng-deep .dx-placeholder::before{
+    display: inline;
+    font-size: 0.9em;
+    font-weight: 100;
+}
+
+::ng-deep .dx-state-focused {
+    outline: none;
+}
+
+::ng-deep .dx-field-item-required-mark {
+    color: red;
+}
+
+::ng-deep .dx-texteditor.dx-editor-filled {
+    border-radius: 0px;
+    border-bottom: none;
+}
+
+::ng-deep .dx-state-focused:not(.dx-invalid):before{
+    border-bottom: 2px solid green !important;
+}

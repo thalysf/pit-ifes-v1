@@ -1,0 +1,52 @@
+<h2 class="lead">Informar aulas ministradas no semestre e a Carga Horária semanal respectiva:</h2>
+<hr>
+
+<div class="col-12 d-grid">
+    <dx-load-indicator
+        [classList]="'m-auto'"
+        [visible]="showLoadIndicator"
+    ></dx-load-indicator>
+</div>
+
+<div class="row">
+    <div class="col-md-9">
+        <label><strong>Componente curricular:</strong></label>
+    </div>
+    <div class="col-md-2">
+        <label><strong>Carga Horaria:</strong></label>
+    </div>
+</div>
+
+<div *ngFor="let resposta of respostas" class="row mt-3">
+    <div class="col-md-9">
+        <modal-seletor
+            [colunas]="colunasComponentesCurriculares"
+            [route]="rotaComponentes"
+            [columnsFilter]="colunasFilter"
+            [titulo]="'Selecionar Componente Curricular'"
+            [valueExpr]="'idComponenteCurricular'"
+            [displayExpr]="'nome'"
+            [disabled]="resposta.componenteCurricular ? true : false"
+            [displayFunction]="formatNomeComponente"
+            [(selectedItem)]="resposta.componenteCurricular"
+            (selectedItemChange)="componenteSelecionadoChanged(resposta)"
+        ></modal-seletor>
+    </div>
+    <div class="col-md-2">
+        <app-carga-horaria-editor
+            [max]="resposta.cargaHorariaMaxima"
+            [(value)]="resposta.cargaHorariaSemanal"
+            [readOnly]="pitAprovadoOuEmRevisao"
+            (onValueChanged)="changeCargaHorariaResposta(resposta)"
+        ></app-carga-horaria-editor>
+    </div>
+    <div class="col-md-1" *ngIf="resposta.componenteCurricular && !pitAprovadoOuEmRevisao">
+        <dx-button
+            icon="close"
+            stylingMode="outlined"
+            type="danger"
+            [classList]="''"
+            (onClick)="onClickRemoverLinha(resposta)"
+        ></dx-button>
+    </div>
+</div>

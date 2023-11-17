@@ -1,0 +1,85 @@
+<div class="row">
+    <div class="col-md-10">
+        <seletor-unico
+            [textoInput]="nomeAtividade"
+            [disabled]="pitAprovadoOuEmRevisao"
+            (onClick)="abrirDetalhamentoAtividadeProjeto()"
+        ></seletor-unico>
+
+        <modal-padrao
+            [titulo]="nomeAtividade"
+            [(isVisible)]="showModalDetalhamentoProjeto"
+            [salvar]="salvar()"
+        >
+
+            <div class="col-12 d-grid">
+                <dx-load-indicator
+                    [classList]="'m-auto'"
+                    [visible]="showLoadIndicator"
+                ></dx-load-indicator>
+            </div>
+
+
+            <div *ngFor="let resposta of respostas" class="row mt-2">
+                <div class="col-md-9">
+                    <seletor-unico
+                        [textoInput]="resposta.projeto ? (resposta.projeto?.tituloProjeto + ' - ' + resposta.tipoParticipacao) : 'Incluir participação'"
+                        [disabled]="resposta.projeto != null"
+                        (onClick)="abrirModalIncluirParticipacaoProjeto()"
+                    ></seletor-unico>
+                </div>
+                <div class="col-md-2">
+                    <app-carga-horaria-editor
+                        [(value)]="resposta.cargaHorariaSemanal"
+                        [max]="resposta.projeto?.cargaHorariaMaxima || zeroEmHoras"
+                        [min]="resposta.projeto?.cargaHorariaMinima || zeroEmHoras"
+                        (onValueChanged)="changeCargaHorariaResposta()"
+                    ></app-carga-horaria-editor>
+                </div>
+                <div class="col-md-1" *ngIf="resposta.idDetalhamentoProjeto">
+                    <dx-button
+                        icon="close"
+                        stylingMode="outlined"
+                        type="danger"
+                        [classList]="''"
+                        (onClick)="onClickRemoverLinha(resposta)"
+                    ></dx-button>
+                </div>
+            </div>
+
+        </modal-padrao>
+    </div>
+
+    <div class="col-md-2">
+        <app-carga-horaria-editor
+            [(value)]="totalHoras"
+            [readOnly]="true"
+        ></app-carga-horaria-editor>
+    </div>
+</div>
+
+<div *ngIf="showModalIncluirParticipacaoProjeto">
+    <modal-padrao
+        titulo="Incluir participação no projeto"
+        [(isVisible)]="showModalIncluirParticipacaoProjeto"
+        [salvar]="incluirParticipacaoProjeto()"
+        [width]="500"
+    >
+        <div class="form-group">
+            <label>Projeto:</label>
+            <modal-seletor
+                [titulo]="'Projetos que o professor participa'"
+                [colunas]="colunasProjetos"
+                [route]="getUrlProjetosAssociadosAoProfessorEAtividade()"
+                [(selectedItem)]="projetoSelecionado"
+                valueExpr="idParticipacaoProjeto"
+                displayExpr="projeto.tituloProjeto"
+            ></modal-seletor>
+        </div>
+
+        <div class="form-group">
+            <label>Tipo de participação:</label>
+            <dx-text-box [(value)]="tipoParticipacao"></dx-text-box>
+        </div>
+    </modal-padrao>
+</div>

@@ -1,0 +1,64 @@
+<div class="container-body">
+    <form class="login-form" (submit)="onSubmit($event)">
+        <dx-form [formData]="formData" [disabled]="loading">
+
+            <dxi-item dataField="email" editorType="dxTextBox"
+                      [editorOptions]="{ stylingMode: 'filled', placeholder: 'Usuário', mode: 'text' }">
+                <dxi-validation-rule type="required" message="Digite um e-mail válido!"></dxi-validation-rule>
+                <dxo-label [visible]="false"></dxo-label>
+            </dxi-item>
+
+            <dxi-item dataField="password" editorType="dxTextBox"
+                      [editorOptions]="{ stylingMode: 'filled', placeholder: 'Senha', mode: 'password' }">
+                <dxi-validation-rule type="required" message="Digite sua senha"></dxi-validation-rule>
+                <dxo-label [visible]="false"></dxo-label>
+            </dxi-item>
+
+            <dxi-item itemType="button">
+                <dxo-button-options width="100%" type="default" [useSubmitBehavior]="true"
+                                    [template]="'signInTemplate'">
+                </dxo-button-options>
+            </dxi-item>
+
+            <dxi-item>
+                <div class="link">
+                    <a routerLink="/reset-password">Esqueceu a senha?</a>
+                </div>
+            </dxi-item>
+
+            <!--            <dxi-item itemType="button">-->
+            <!--                <dxo-button-options text="Criar conta" width="100%"-->
+            <!--                                    [onClick]="onCreateAccountClick"></dxo-button-options>-->
+            <!--            </dxi-item>-->
+
+            <ng-container *dxTemplate="let item of 'signInTemplate'">
+                <div>
+                    <span class="dx-button-text">
+                          <ng-container *ngIf="loading; else notLoading">
+                                <dx-load-indicator width="24px" height="24px" [visible]="true"></dx-load-indicator>
+                          </ng-container>
+                          <ng-template #notLoading>Login</ng-template>
+                    </span>
+                </div>
+            </ng-container>
+
+        </dx-form>
+    </form>
+
+    <div class="d-grid mt-5">
+        <div class="m-auto d-grid">
+        <a *ngFor="let linkedin of linkedins" href="{{linkedin.link}}" target="_blank" class="d-inline-flex mt-3">
+            <div style="width: 1.3em; height: 1.3em">
+                <svg xmlns="http://www.w3.org/2000/svg" version="1.1" id="Layer_1" x="0px" y="0px" viewBox="0 0 536 536"
+                     style="enable-background:new 0 0 536 536;" xml:space="preserve">
+                <path class="st0"
+                      d="M40.3,1.6C10.8,1.6,1,29.6,1,40.8c0,8,0,227.3,0,227.3s0,209.4,0,227.4c0,18.1,11.9,39.1,39.1,39.1  s227.9,0,227.9,0s201.3,0,228.4,0c23.9,0,38.6-20,38.6-38.7c0-11.4,0-227.8,0-227.8s0-196.9,0-225S516.9,1.6,497.4,1.6  c-8.4,0-227.9-0.2-227.9-0.2C75,1.2,43.4,1.6,40.3,1.6z M132.4,76c8.4,2.6,13.7,5.9,20.2,12.8c6.3,6.6,8.9,11.1,11.4,19.7  c2.3,7.7,1.6,19.9-1.4,27.8c-9.6,24.9-38.7,36.8-62.4,25.5c-29.4-13.9-35.8-52.1-12.6-74.7C99.5,75.6,117.1,71.2,132.4,76z   M386.2,196.7c4.5,0.8,12,2.8,16.7,4.5c28.5,10.3,43.7,31.6,50.9,71.4c2.2,11.7,2.2,13.9,2.2,98v86h-39.5H377l-0.6-78  c-0.5-71-0.7-78.5-2.3-84c-2.8-9.3-6.6-16.2-11.3-20.6c-6.5-6-12.1-8.1-23.5-8.7c-22.3-1.1-36,5.8-43.8,22.3  c-6.4,13.7-6.4,13.5-7,95l-0.5,74h-39.5H209l-0.3-127.8l-0.2-127.7H247h38.5v17.7v17.8l2.7-4c13.5-20.2,35.7-34.2,59-37.4  C355.6,194,375.2,194.8,386.2,196.7z M159.3,328.8L159,456.6h-39.5H80l-0.3-127.8l-0.2-127.7h40h40L159.3,328.8z"/>
+                </svg>
+            </div>
+            <div class="text-dark ml-3 font-weight-bold" style="font-size: 1em">
+                {{linkedin.nome}}
+            </div>
+        </a>
+        </div>
+    </div>
+</div>

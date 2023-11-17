@@ -1,0 +1,13 @@
+<dx-select-box
+    [width]="width"
+    [(value)]="value"
+    [acceptCustomValue]="true"
+    [dataSource]="horasDisponiveisSelect"
+    [showClearButton]="showClearButton"
+    [searchEnabled]="false"
+    [displayExpr]="'nome'"
+    [readOnly]="readOnly"
+    [valueExpr]="'id'"
+    (onCustomItemCreating)="createNewHora($event)"
+    (onSelectionChanged)="changeValue($event)"
+></dx-select-box>

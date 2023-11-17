@@ -1,0 +1,26 @@
+<dx-toolbar [classList]="'toolbar'">
+    <dxi-item
+        location="before"
+        toolbar="bottom"
+        widget="dxButton"
+        *ngIf="!disableBefore"
+        [options]="backOption"
+    ></dxi-item>
+
+    <dxi-item location="before">
+        <div [classList]="'label-toolbar'">
+            {{titulo}}
+        </div>
+    </dxi-item>
+
+    <dxi-item
+        *ngFor="let option of actionsAposConfigurar"
+        toolbar="bottom"
+        location="after"
+        widget="dxButton"
+        [cssClass]="'botoes-toolbar'"
+        location="after"
+        [options]="option">
+    </dxi-item>
+
+</dx-toolbar>

@@ -1,0 +1,40 @@
+<div class="row">
+    <div class="col-md-10">
+        <seletor-unico
+            [textoInput]="nomeAtividade"
+            (onClick)="abrirDetalhamentoAtividadePortaria()"
+            [disabled]="pitAprovadoOuEmRevisao"
+        ></seletor-unico>
+
+        <modal-padrao
+            [titulo]="nomeAtividade"
+            [(isVisible)]="showModalDetalhamento"
+            [salvar]="salvar()"
+        >
+
+            <div *ngFor="let portariaResposta of portariaERespostas" class="row mt-2">
+                <div class="col-md-10">
+                    <dx-text-box
+                        [value]="portariaResposta.portaria.nome"
+                        [readOnly]="true"
+                    ></dx-text-box>
+                </div>
+                <div class="col-md-2">
+                    <app-carga-horaria-editor
+                        [(value)]="portariaResposta.resposta.cargaHorariaSemanal"
+                        [max]="portariaResposta.portaria.cargaHorariaMaxima"
+                        [min]="portariaResposta.portaria.cargaHorariaMinima"
+                        (onValueChanged)="changeCargaHorariaResposta(portariaResposta.resposta)"
+                    ></app-carga-horaria-editor>
+                </div>
+            </div>
+        </modal-padrao>
+    </div>
+
+    <div class="col-md-2">
+        <app-carga-horaria-editor
+            [(value)]="totalHoras"
+            [readOnly]="true"
+        ></app-carga-horaria-editor>
+    </div>
+</div>

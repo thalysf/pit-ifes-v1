@@ -1,0 +1,27 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+
+    <changeSet id="1" author="joao">
+        <comment>Criando atividades: Aula e Mediação Pedagógica</comment>
+
+        <insert tableName="atividade">
+            <column name="id_atividade" value="8a42d95b-21f5-4299-8d39-5d172b655ddb"></column>
+            <column name="nome_atividade" value="Aula"></column>
+            <column name="tipo_atividade" value="ATIVIDADE_ENSINO_DEFAULT"></column>
+            <column name="carga_horaria_minima" value="null"></column>
+            <column name="carga_horaria_maxima" value="null"></column>
+            <column name="tipo_detalhamento" value="DETALHAMENTO_AULA"></column>
+        </insert>
+
+        <insert tableName="atividade">
+            <column name="id_atividade" value="ae280b35-8eaf-488f-9570-eb0805debdec"></column>
+            <column name="nome_atividade" value="Mediação Pedagógica"></column>
+            <column name="tipo_atividade" value="ATIVIDADE_ENSINO_DEFAULT"></column>
+            <column name="carga_horaria_minima" value="null"></column>
+            <column name="carga_horaria_maxima" value="null"></column>
+            <column name="tipo_detalhamento" value="DETALHAMENTO_AULA"></column>
+        </insert>
+    </changeSet>
+
+</databaseChangeLog>

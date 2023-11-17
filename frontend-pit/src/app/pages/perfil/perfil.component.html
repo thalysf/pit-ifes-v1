@@ -1,0 +1,12 @@
+<toolbar
+    [titulo]="'Perfil'"
+    [actions]="actionsPerfil"
+></toolbar>
+
+<div class="content-block dx-card responsive-paddings">
+    <formulario-dinamico
+        #formulario
+        [colunas]="perfilResource.colunas"
+        [(entidade)]="entidade"
+    ></formulario-dinamico>
+</div>

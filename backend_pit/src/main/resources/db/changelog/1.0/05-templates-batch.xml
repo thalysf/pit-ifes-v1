@@ -1,0 +1,41 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+
+    <changeSet id="1" author="thalys">
+        <createTable tableName="batch_template">
+            <column name="id_template" type="uuid"></column>
+            <column name="template_name" type="varchar(144)"></column>
+            <column name="template_file" type="longblob"></column>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="2" author="thalys">
+        <comment>Inserindo templates na tabela batch_template</comment>
+
+        <insert tableName="batch_template">
+            <column name="id_template" type="uuid" value="b1fa7df7-d138-47c2-9a6d-31008a63dc30"/>
+            <column name="template_name" value="COMPONENTE_CURRICULAR"/>
+            <column name="template_file" type="longblob" valueBlobFile="../../../templates/template_batch_componente.xls"/>
+        </insert>
+
+        <insert tableName="batch_template">
+            <column name="id_template" type="uuid" value="381009a5-3a2d-4f64-9131-d822b0d1dbb0"/>
+            <column name="template_name" value="SERVIDOR"/>
+            <column name="template_file" type="longblob" valueBlobFile="../../../templates/template_batch_servidor.xls"/>
+        </insert>
+
+        <insert tableName="batch_template">
+            <column name="id_template" type="uuid" value="c5594273-eb94-4817-b0aa-9c09893cc251"/>
+            <column name="template_name" value="PORTARIA"/>
+            <column name="template_file" type="longblob" valueBlobFile="../../../templates/template_batch_portaria.xls"/>
+        </insert>
+
+        <insert tableName="batch_template">
+            <column name="id_template" type="uuid" value="f6b1dcbf-87ab-4caa-b80d-66c18f8b4ea4"/>
+            <column name="template_name" value="PROJETO"/>
+            <column name="template_file" type="longblob" valueBlobFile="../../../templates/template_batch_projeto.xls"/>
+        </insert>
+    </changeSet>
+
+</databaseChangeLog>

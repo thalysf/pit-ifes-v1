@@ -1,0 +1,26 @@
+<dx-popup [(visible)]="isVisible" [showCloseButton]="true" [title]="titulo" (onHiding)="fechar()" height="500px" [maxWidth]="width">
+    <dx-scroll-view height="83%">
+        <ng-content></ng-content>
+    </dx-scroll-view>
+
+    <div class="modal-footer" style="margin-top: 2em">
+        <ng-container>
+            <dx-button
+                stylingMode="outlined"
+                text="Cancelar"
+                type="primary"
+                icon="clear"
+                (onClick)="fechar()"
+            ></dx-button>
+
+            <dx-button
+                stylingMode="contained"
+                [text]="textBtnSalvar"
+                [type]="'success'"
+                [disabled]="btnSaveDisabled"
+                [icon]="iconBtnSave"
+                (onClick)="onSalvar()"
+            ></dx-button>
+        </ng-container>
+    </div>
+</dx-popup>

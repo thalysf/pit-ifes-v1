@@ -1,0 +1,22 @@
+@import "src/themes/generated/variables.base";
+
+.login-form {
+  .link {
+    text-align: center;
+    font-size: 16px;
+    font-style: normal;
+
+    a {
+      text-decoration: none;
+    }
+  }
+
+  ::ng-deep .form-text {
+    margin: 10px 0;
+    color: rgba($base-text-color, alpha($base-text-color) * 0.7);
+  }
+}
+
+.st0 {
+    fill: #2867B2;
+}
