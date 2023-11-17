@@ -15,17 +15,6 @@ O processo de elaboração do Plano Individual de Trabalho (PIT) é um desafio r
 
 - Ambiente Integrado: Ao combinar diversas funcionalidades, o sistema proporciona um ambiente integrado para facilitar a elaboração do PIT.
 
-### Tecnologias Utilizadas
-O desenvolvimento do sistema foi realizado utilizando as seguintes tecnologias:
-
-- Java: A linguagem de programação Java foi escolhida pela sua robustez e ampla adoção no desenvolvimento de sistemas corporativos.
-
-- Spring Boot: O framework Spring Boot foi empregado para agilizar o desenvolvimento, proporcionando facilidades para a criação de aplicativos Java baseados em microsserviços.
-
-- Angular: Para a construção da interface do usuário, utilizamos o framework Angular, conhecido por sua eficiência na criação de aplicações web dinâmicas.
-
-- PostgreSQL: O sistema faz uso do PostgreSQL como sistema de gerenciamento de banco de dados, garantindo a segurança e integridade das informações armazenadas.
-
 ### Benefícios da Implementação
 A implementação do sistema de suporte para o PIT traz os seguintes benefícios ao ambiente acadêmico:
 
@@ -35,8 +24,24 @@ A implementação do sistema de suporte para o PIT traz os seguintes benefícios
 
 - Melhoria na Gestão Acadêmica: Contribui para uma gestão mais eficiente e transparente das atividades acadêmicas, auxiliando na tomada de decisões.
 
+## Tecnologias Utilizadas
 
-### Prints do Sistema
+Este projeto foi desenvolvido utilizando as seguintes tecnologias:
+
+- [![Static Badge](https://img.shields.io/badge/Angular-red?logo=AngularJs)](https://angular.io/) : Utilizado para a construção da interface do usuário, fornecendo um framework robusto e escalável para desenvolvimento front-end.
+
+
+- [![Static Badge](https://img.shields.io/badge/Devexpress-white?logo=devexpress)](https://js.devexpress.com) : Framework utilizado para a criação de componentes de interface e visualização de dados, oferecendo uma gama de ferramentas para facilitar o desenvolvimento.
+
+- [![Static Badge](https://img.shields.io/badge/Bootstrap-white?logo=Bootstrap)](https://getbootstrap.com) : Framework de front-end para o desenvolvimento de sites e aplicações web responsivos e mobile-first.
+
+
+- [![Static Badge](https://img.shields.io/badge/spring-white?logo=spring)](https://spring.io/): Utilizado para a construção da camada de serviço e gerenciamento do backend da aplicação, oferecendo um conjunto abrangente de ferramentas para desenvolvimento de aplicações corporativas em Java.
+
+- [![Static Badge](https://img.shields.io/badge/PostgreSQL-white?logo=PostgreSQL)](https://www.postgresql.org/): Banco de dados relacional utilizado para armazenamento de dados.
+
+
+## Prints do Sistema
 
 <img width="719" alt="Servidores - listagem" src="https://github.com/thalysf/pit-ifes-v1/assets/57870382/0a9557ca-7856-4e68-a5b0-1d6cbb50ee60">
 <img width="720" alt="Servidores - formulario" src="https://github.com/thalysf/pit-ifes-v1/assets/57870382/7e32a099-8958-42bc-876f-3ea2242080c3">
