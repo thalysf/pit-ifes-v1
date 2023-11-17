@@ -1,5 +1,7 @@
 # Sistema de Suporte para Elaboração do Plano Individual de Trabalho (PIT)
 
+[![NPM](https://img.shields.io/npm/l/react)](https://github.com/thalysf/pit-ifes-v1/blob/main/LICENSE)
+
 ## Autores: Thalys Fabrete Cândido, João Vitor Natali
 ## Orientador: Renan Osório
 
