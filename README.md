@@ -1,7 +1,7 @@
 # Sistema de Suporte para Elaboração do Plano Individual de Trabalho (PIT)
 
 ## Autores: Thalys Fabrete Cândido, João Vitor Natali
-## Orientador: Renan Osorios
+## Orientador: Renan Osório
 
 ### Resumo
 O processo de elaboração do Plano Individual de Trabalho (PIT) é um desafio recorrente enfrentado pelos professores a cada semestre letivo. Este trabalho propõe o desenvolvimento de um sistema de suporte dedicado à otimização desse complexo procedimento. O sistema, desenvolvido para o IFES Campus Colatina, visa simplificar o preenchimento do PIT, exigindo precisão na distribuição de atividades acadêmicas e respeitando as diversas restrições impostas.
