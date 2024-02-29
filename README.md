@@ -101,3 +101,4 @@ Este projeto foi desenvolvido utilizando as seguintes tecnologias:
 <img width="721" alt="Atividades de Apoio ao Ensino - formulario apenas carga horaria" src="https://github.com/thalysf/pit-ifes-v1/assets/57870382/b26c02c2-469e-4da6-85b1-8f8e48dc62b3">
 <img width="719" alt="Atividades de Apoio ao Ensino - formulario apenas alunos" src="https://github.com/thalysf/pit-ifes-v1/assets/57870382/889bd692-8b74-44d7-9254-842565541101">
 <img width="560" alt="Atividades de Apoio ao Ensino - container de projetos" src="https://github.com/thalysf/pit-ifes-v1/assets/57870382/92b640ee-a609-4ec6-8326-31ad42bf15fd">
+
